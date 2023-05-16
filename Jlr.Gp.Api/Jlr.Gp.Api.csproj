@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Jlr.Gp.Application\Jlr.Gp.Application.csproj" />
+    <ProjectReference Include="..\Jlr.Gp.Infrastructure\Jlr.Gp.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
