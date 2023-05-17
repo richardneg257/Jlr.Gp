@@ -15,7 +15,7 @@ public class DocumentsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<DocumentDniDto?>> GetByDni([FromQuery] string dni)
+    public async Task<ActionResult<DocumentByDniDto?>> GetByDni([FromQuery] string dni)
     {
         var getDocumentByDniQuery = new GetDocumentByDniQuery() { Dni = dni };
         return await _mediator.Send(getDocumentByDniQuery);

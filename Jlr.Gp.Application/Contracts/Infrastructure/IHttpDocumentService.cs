@@ -1,7 +1,8 @@
-﻿using Jlr.Gp.Application.Features.Queries.GetDocumentByDni;
+﻿using Jlr.Gp.Application.Models;
 
 namespace Jlr.Gp.Application.Contracts.Infrastructure;
 public interface IHttpDocumentService
 {
-    Task<DocumentDniDto?> GetDocumentByDni(string dni);
+    Task<DocumentFromSap?> GetDocumentFromSap(string documentNumber);
+    Task<DocumentDniData?> GetDocumentByDni(string dni);
 }
