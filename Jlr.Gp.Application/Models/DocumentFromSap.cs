@@ -2,6 +2,7 @@
 public class DocumentFromSap
 {
     public string Codigo { get; set; } = string.Empty;
+    public string Nombre { get; set; } = string.Empty;
     public string PrimerNombre { get; set; } = string.Empty;
     public string SegundoNombre { get; set; } = string.Empty;
     public string ApellidoPaterno { get; set; } = string.Empty;
