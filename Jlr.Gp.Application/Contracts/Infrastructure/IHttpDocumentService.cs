@@ -5,4 +5,5 @@ public interface IHttpDocumentService
 {
     Task<DocumentFromSap?> GetDocumentFromSap(string documentNumber);
     Task<DocumentDniData?> GetDocumentByDni(string dni);
+    Task<DocumentCarData?> GetCarByPlate(string plateNumber);
 }

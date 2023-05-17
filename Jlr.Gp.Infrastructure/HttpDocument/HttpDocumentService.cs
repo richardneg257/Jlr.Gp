@@ -25,4 +25,10 @@ public class HttpDocumentService : IHttpDocumentService
         var response = await _clientHttpExternal.GetFromJsonAsync<DocumentDni>($"dni?document={dni}");
         return response.Data;
     }
+
+    public async Task<DocumentCarData?> GetCarByPlate(string plateNumber)
+    {
+        var response = await _clientHttpExternal.GetFromJsonAsync<DocumentCar>($"plate?document={plateNumber}");
+        return response.Data;
+    }
 }

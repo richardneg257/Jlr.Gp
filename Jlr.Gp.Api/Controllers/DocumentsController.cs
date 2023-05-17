@@ -1,4 +1,5 @@
-﻿using Jlr.Gp.Application.Features.Queries.GetDocumentByDni;
+﻿using Jlr.Gp.Application.Features.Queries.GetCarByPlate;
+using Jlr.Gp.Application.Features.Queries.GetDocumentByDni;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,10 +15,17 @@ public class DocumentsController : ControllerBase
         _mediator = mediator;
     }
 
-    [HttpGet]
+    [HttpGet("dni")]
     public async Task<ActionResult<DocumentByDniDto?>> GetByDni([FromQuery] string dni)
     {
         var getDocumentByDniQuery = new GetDocumentByDniQuery() { Dni = dni };
         return await _mediator.Send(getDocumentByDniQuery);
+    }
+
+    [HttpGet("plate")]
+    public async Task<ActionResult<CarByPlateDto?>> GetByPlate([FromQuery] string plate)
+    {
+        var getCarByPlateQuery = new GetCarByPlateQuery() { Plate = plate };
+        return await _mediator.Send(getCarByPlateQuery);
     }
 }
