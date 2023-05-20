@@ -1,5 +1,5 @@
 ﻿namespace Jlr.Gp.Application.Models;
-public class ClientWithDni
+public class ClientInfo
 {
     public string NroDocumento { get; set; } = string.Empty;
     public string Codigo { get; set; } = string.Empty;

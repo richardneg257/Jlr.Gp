@@ -38,8 +38,8 @@ public class HttpDocumentService : IHttpDocumentService
         return response.Data;
     }
 
-    public async Task RegisterClientByDni(ClientWithDni client)
+    public async Task RegisterClient(ClientInfo client)
     {
-        var response = await _clientHttpSap.PostAsJsonAsync<ClientWithDni>($"CrudSociodeNegocio", client);
+        var response = await _clientHttpSap.PostAsJsonAsync<ClientInfo>($"CrudSociodeNegocio", client);
     }
 }

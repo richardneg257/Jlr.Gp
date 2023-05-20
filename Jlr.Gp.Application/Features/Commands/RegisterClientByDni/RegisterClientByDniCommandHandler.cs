@@ -15,7 +15,7 @@ public class RegisterClientByDniCommandHandler : IRequestHandler<RegisterClientB
 
     public async Task Handle(RegisterClientByDniCommand request, CancellationToken cancellationToken)
     {
-        var clientWithDni = new ClientWithDni();
+        var clientWithDni = new ClientInfo();
 
         var response = await _httpDocumentService.GetDocumentFromSap(request.Dni);
         if (response is null || response.Codigo is null)
@@ -38,6 +38,6 @@ public class RegisterClientByDniCommandHandler : IRequestHandler<RegisterClientB
         clientWithDni.Telefono = request.Phone;
         clientWithDni.Codigo = $"C{request.Dni}";
 
-        await _httpDocumentService.RegisterClientByDni(clientWithDni);
+        await _httpDocumentService.RegisterClient(clientWithDni);
     }
 }
