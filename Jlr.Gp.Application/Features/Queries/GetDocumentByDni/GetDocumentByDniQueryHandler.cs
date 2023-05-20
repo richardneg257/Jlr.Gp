@@ -27,6 +27,8 @@ public class GetDocumentByDniQueryHandler : IRequestHandler<GetDocumentByDniQuer
         else
         {
             var responseExternal = await _httpDocumentService.GetDocumentByDni(request.Dni);
+            if(responseExternal is null) return null;
+
             documentByDni.DocumentNumber = responseExternal.Dni;
             documentByDni.Name = responseExternal.Name;
             documentByDni.FatherLastName = responseExternal.Fathers_LastName;

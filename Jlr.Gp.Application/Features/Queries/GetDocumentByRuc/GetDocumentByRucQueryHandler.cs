@@ -24,6 +24,8 @@ public class GetDocumentByRucQueryHandler : IRequestHandler<GetDocumentByRucQuer
         else
         {
             var responseExternal = await _httpDocumentService.GetDocumentByRuc(request.Ruc);
+            if (responseExternal is null) return null;
+
             documentByRuc.Ruc = responseExternal.Ruc;
             documentByRuc.BusinessName = responseExternal.Name;
         }

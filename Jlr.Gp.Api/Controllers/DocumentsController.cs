@@ -22,21 +22,30 @@ public class DocumentsController : ControllerBase
     public async Task<ActionResult<DocumentByDniDto?>> GetByDni([FromQuery] string dni)
     {
         var getDocumentByDniQuery = new GetDocumentByDniQuery() { Dni = dni };
-        return await _mediator.Send(getDocumentByDniQuery);
+        var response = await _mediator.Send(getDocumentByDniQuery);
+        if(response is null) return NotFound("The client doesn't exist.");
+
+        return response;
     }
 
     [HttpGet("ruc")]
     public async Task<ActionResult<DocumentByRucDto?>> GetByRuc([FromQuery] string ruc)
     {
         var getDocumentByRucQuery = new GetDocumentByRucQuery() { Ruc = ruc };
-        return await _mediator.Send(getDocumentByRucQuery);
+        var response = await _mediator.Send(getDocumentByRucQuery);
+        if (response is null) return NotFound("The client doesn't exist.");
+
+        return response;
     }
 
     [HttpGet("plate")]
     public async Task<ActionResult<CarByPlateDto?>> GetByPlate([FromQuery] string plate)
     {
         var getCarByPlateQuery = new GetCarByPlateQuery() { Plate = plate };
-        return await _mediator.Send(getCarByPlateQuery);
+        var response = await _mediator.Send(getCarByPlateQuery);
+        if (response is null) return NotFound("Plate doesn't exist.");
+
+        return response;
     }
 
     [HttpPost("dni")]
