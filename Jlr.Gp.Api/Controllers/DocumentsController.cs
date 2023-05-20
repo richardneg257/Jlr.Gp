@@ -1,4 +1,5 @@
-﻿using Jlr.Gp.Application.Features.Queries.GetCarByPlate;
+﻿using Jlr.Gp.Application.Features.Commands.RegisterClientByDni;
+using Jlr.Gp.Application.Features.Queries.GetCarByPlate;
 using Jlr.Gp.Application.Features.Queries.GetDocumentByDni;
 using Jlr.Gp.Application.Features.Queries.GetDocumentByRuc;
 using MediatR;
@@ -35,5 +36,12 @@ public class DocumentsController : ControllerBase
     {
         var getCarByPlateQuery = new GetCarByPlateQuery() { Plate = plate };
         return await _mediator.Send(getCarByPlateQuery);
+    }
+
+    [HttpPost("registerdni")]
+    public async Task<ActionResult> RegisterByDni([FromBody] RegisterClientByDniCommand command)
+    {
+        await _mediator.Send(command);
+        return NoContent();
     }
 }

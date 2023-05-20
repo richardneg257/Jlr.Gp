@@ -7,4 +7,5 @@ public interface IHttpDocumentService
     Task<DocumentDniData?> GetDocumentByDni(string dni);
     Task<DocumentCarData?> GetCarByPlate(string plateNumber);
     Task<DocumentRucData?> GetDocumentByRuc(string rucNumber);
+    Task RegisterClientByDni(ClientWithDni client);
 }

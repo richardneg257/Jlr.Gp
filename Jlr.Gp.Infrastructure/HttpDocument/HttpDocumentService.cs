@@ -37,4 +37,9 @@ public class HttpDocumentService : IHttpDocumentService
         var response = await _clientHttpExternal.GetFromJsonAsync<DocumentRuc>($"ruc?document={rucNumber}");
         return response.Data;
     }
+
+    public async Task RegisterClientByDni(ClientWithDni client)
+    {
+        var response = await _clientHttpSap.PostAsJsonAsync<ClientWithDni>($"CrudSociodeNegocio", client);
+    }
 }
